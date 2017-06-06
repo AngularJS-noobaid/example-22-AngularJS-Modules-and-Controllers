@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	
+<html>
+	<head>
+		<title>Modules and Controllers</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	</head>	
+
+	<body>
+		<h1>Introduction to AngularJS</h1>
+
+		
+
+		<div ng-app="" ng-init="x=5">
+			<h2>Example #1: Our First Application</h2>
+
+  			<p>Name : <input type="text" ng-model="name"></p>
+  			<h1> {{"Hello " + name}}</h1>
+
+			<h2>Example #2: AngularJS Expressions</h2>
+			
+			<h1>1. 7 + 5 = {{7 + 5}}</h1>
+			<h1>2. 7 - 5 = {{7 - 5}}</h1>
+			<h1>3. 7 * 5 = {{7 * 5}}</h1>
+			<h1>4. 7 % 5 = {{7 % 5}}</h1>
+
+			<h2>Example #3: AngularJS Initializing Variables
+			
+			<h1>Variable x = 5</h1>
+	
+			<h1>1. 7 + x = <span ng-bind="{{7 + x}}"></span></h1>
+			<h1>2. 7 - x = <span ng-bind="{{7 - x}}"></span></h1>
+			<h1>3. 7 * x = <span ng-bind="{{7 * x}}"></span></h1>
+			<h1>4. 7 % x = <span ng-bind="{{7 % x}}"></span></h1>
+
+		</div>
+
+		 <div id="module2" ng-controller="myCtrl">
+			<p>First Name: <input type="text" ng-model="firstName"></p><br>
+			<p>Last Name: <input type="text" ng-model="lastName"></p><br>
+			<br>
+			<p>Full Name: {{firstName + " " + lastName}}</p>
+		</div>
+
+		<script>	
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+    				$scope.firstName= "John";
+   				$scope.lastName= "Doe";
+			});
+
+			angular.bootstrap(document.getElementById("module2"), ['myApp']);
+		</script> 
+	</body>
+</html> 
